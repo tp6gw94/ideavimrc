@@ -1,0 +1,114 @@
+"" Source your .vimrc
+"source ~/.vimrc
+let mapleader = " "
+
+Plug 'machakann/vim-highlightedyank'
+set clipboard=unnamed
+set easymotion
+set relativenumber
+set NERDTree
+set hls
+set sneak
+set which-key
+set notimeout
+set showmode
+set ruler
+set ignorecase
+set smartcase
+set lazyredraw
+set ttyfast
+set visualbell
+set commentary
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+set surround
+set ignorecase
+set smartcase
+set cursorline
+set argtextobj
+set textobj-entire
+set keep-english-in-normal-and-restore-in-insert
+Plug 'terryma/vim-multiple-cursors'
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+
+"let g:argtextobj_pairs="[:],(:),<:>"
+
+" <C-n> seems to me as a better solution than <M-n>,
+" but we should finally support vim-visual-multi because vim-multiple-cursors is deprecated now
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current li
+"map \b <Action>(ToggleLineBreakpoint)
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+map 0 j
+
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <C-e> :<C-u>action RecentFiles<CR>
+nnoremap gs :<C-u>action GotoSymbol<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gu :<C-u>action FindUsages<CR>
+map gf <Action>(ShowUsages)
+
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gm :<C-u>action GotoMethod<CR>
+nnoremap gr :<C-u>action GotoRelatedSymbol<CR>
+nnoremap <leader>cd :<C-u>action ShowErrorDescription<CR>
+nnoremap <Leader>t :action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>f :<C-u>action GotoFile<CR>
+nnoremap H _
+nnoremap L $
+xnoremap H _
+xnoremap L $
+nnoremap <Esc> :nohlsearch<CR>
+
+nnoremap <Leader>cr :action RenameElement<CR>
+nnoremap <Leader>x :close<CR>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>
+" xnoremap K :move '<-2<CR>gv-gv<CR>
+" xnoremap J :move '>+1<CR>gv-gv<CR>
+xnoremap J :action MoveStatementDown<CR>
+xnoremap K :action MoveStatementUp<CR>
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
+
+map <leader>o <Action>(FileStructurePopup)
+map <leader>s <Action>(SurroundWith)
+
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
