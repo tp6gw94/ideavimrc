@@ -74,10 +74,6 @@ nnoremap gr :<C-u>action GotoRelatedSymbol<CR>
 nnoremap <leader>cd :<C-u>action ShowErrorDescription<CR>
 nnoremap <Leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <Leader>f :<C-u>action GotoFile<CR>
-nnoremap H _
-nnoremap L $
-xnoremap H _
-xnoremap L $
 nnoremap <Esc> :nohlsearch<CR>
 
 nnoremap <Leader>cr :action RenameElement<CR>
