@@ -2,14 +2,18 @@
 "source ~/.vimrc
 let mapleader = " "
 
-Plug 'machakann/vim-highlightedyank'
-set clipboard=unnamed
-set easymotion
-set relativenumber
+" Plugin
+set highlightedyank
 set NERDTree
+set which-key
+set easymotion
+set multicursor
+
+set clipboard=unnamed
+set relativenumber
+
 set hls
 set sneak
-set which-key
 set notimeout
 set showmode
 set ruler
@@ -28,8 +32,6 @@ set smartcase
 set cursorline
 set argtextobj
 set textobj-entire
-set keep-english-in-normal-and-restore-in-insert
-Plug 'terryma/vim-multiple-cursors'
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -44,36 +46,27 @@ set scrolloff=8
 set incsearch
 
 " Don't use Ex mode, use Q for formatting.
-map Q gq
-
-map 0 j
-
-map <leader>e :NERDTreeToggle<CR>
-
-map gs <Action>(GotoSymbol)
-map gd <Action>(GotoDeclaration)
-map gi <Action>(GotoImplementation)
 map gp <Action>(QuickImplementations)
 map gu <Action>(FindUsages)
 map gf <Action>(ShowUsages)
 map K <Action>(ShowHoverInfo)
 map gs <Action>(GotoSuperMethod)
-map gm <Action>(GotoMethod)
 map gr <Action>(GotoRelatedSymbol)
 
-nnoremap <leader>cd :<C-u>action ShowErrorDescription<CR>
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>fa :<C-u>action GotoAction<CR>
-nnoremap <leader>ff :<C-u>action GotoFile<CR>
-nnoremap <leader>fs :<C-u>action GotoSymbol<CR>
-nnoremap <leader>fc :<C-u>action GotoClass<CR>
-nnoremap <Esc> :nohlsearch<CR>
-nnoremap <leader>e :NERDTreeToggle<CR>
+map <leader>fa <Action>(GotoAction)
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>fc <Action>(GotoClass)
+
+map <leader>o <Action>(FileStructurePopup)
+
+map <Esc> :nohlsearch<CR>
 
 nnoremap <Leader>cr :action RenameElement<CR>
 nnoremap <Leader>x :close<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+
 nmap <C-o> :action Back<CR>
 nmap <C-i> :action Forward<CR>
 " xnoremap K :move '<-2<CR>gv-gv<CR>
@@ -84,21 +77,17 @@ xnoremap K :action MoveStatementUp<CR>
 " delete without yanking
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-
 " replace currently selected text with default register
 " without yanking it
 vnoremap <leader>p "_dP
 
-map <leader>o <Action>(FileStructurePopup)
-map <leader>s <Action>(SurroundWith)
-
 nnoremap <c-\> :action SplitVertically<CR>
 nnoremap <c--> :action SplitHorizontally<CR>
 nnoremap <c-=> :action Unsplit<CR>
-nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+
