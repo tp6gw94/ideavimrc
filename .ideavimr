@@ -46,35 +46,29 @@ set incsearch
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current li
-"map \b <Action>(ToggleLineBreakpoint)
-
-" Find more examples here: https://jb.gg/share-ideavimrc
 map 0 j
 
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <C-e> :<C-u>action RecentFiles<CR>
-nnoremap gs :<C-u>action GotoSymbol<CR>
-nnoremap gd :<C-u>action GotoDeclaration<CR>
-nnoremap gi :<C-u>action GotoImplementation<CR>
-nnoremap gu :<C-u>action FindUsages<CR>
-map gf <Action>(ShowUsages)
+map <leader>e :NERDTreeToggle<CR>
 
-nnoremap gs :<C-u>action GotoSuperMethod<CR>
-nnoremap gm :<C-u>action GotoMethod<CR>
-nnoremap gr :<C-u>action GotoRelatedSymbol<CR>
+map gs <Action>(GotoSymbol)
+map gd <Action>(GotoDeclaration)
+map gi <Action>(GotoImplementation)
+map gp <Action>(QuickImplementations)
+map gu <Action>(FindUsages)
+map gf <Action>(ShowUsages)
+map K <Action>(ShowHoverInfo)
+map gs <Action>(GotoSuperMethod)
+map gm <Action>(GotoMethod)
+map gr <Action>(GotoRelatedSymbol)
+
 nnoremap <leader>cd :<C-u>action ShowErrorDescription<CR>
-nnoremap <Leader>t :action ActivateTerminalToolWindow<CR>
-nnoremap <Leader>f :<C-u>action GotoFile<CR>
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>fa :<C-u>action GotoAction<CR>
+nnoremap <leader>ff :<C-u>action GotoFile<CR>
+nnoremap <leader>fs :<C-u>action GotoSymbol<CR>
+nnoremap <leader>fc :<C-u>action GotoClass<CR>
 nnoremap <Esc> :nohlsearch<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 
 nnoremap <Leader>cr :action RenameElement<CR>
 nnoremap <Leader>x :close<CR>
